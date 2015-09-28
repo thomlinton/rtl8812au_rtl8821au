@@ -206,6 +206,13 @@ bool rtw_cfg80211_pwr_mgmt(_adapter *adapter);
 #define rtw_cfg80211_remain_on_channel_expired(adapter, cookie, chan, chan_type, gfp) cfg80211_remain_on_channel_expired((adapter)->rtw_wdev, cookie, chan, gfp)
 #endif
 
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(4,2,0))
+#define rtw_cfg80211_disconnected(dev, reason, ie, ie_len, gfp) cfg80211_disconnected(dev, reason, ie, ie_len, gfp)
+#else
+#define rtw_cfg80211_disconnected(dev, reason, ie, ie_len, gfp) cfg80211_disconnected(dev, reason, ie, ie_len, false, gfp)
+#endif
+
+
 #include "rtw_cfgvendor.h"
 
 #endif //__IOCTL_CFG80211_H__
