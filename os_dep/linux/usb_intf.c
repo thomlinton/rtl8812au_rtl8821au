@@ -298,6 +298,7 @@ static struct usb_device_id rtw_usb_id_tbl[] ={
 	{USB_DEVICE(0x2001, 0x3315),.driver_info = RTL8812}, /* D-Link - Cameo */
 	{USB_DEVICE(0x2001, 0x3316),.driver_info = RTL8812}, /* D-Link - Cameo */
 	{USB_DEVICE(0x13b1, 0x003f),.driver_info = RTL8812}, /* Linksys - WUSB6300 */
+	{USB_DEVICE(0x2357, 0x0103),.driver_info = RTL8812}, /* TP-Link - Archer T4U */
 #endif
 
 #ifdef CONFIG_RTL8821A
