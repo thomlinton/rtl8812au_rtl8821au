@@ -870,7 +870,7 @@ void rtw_cfg80211_indicate_disconnect(_adapter *padapter)
             cfg80211_connect_result(padapter->pnetdev, NULL, NULL, 0, NULL, 0, 
                 WLAN_STATUS_UNSPECIFIED_FAILURE, GFP_ATOMIC/*GFP_KERNEL*/);
         else if(pwdev->sme_state==CFG80211_SME_CONNECTED)
-            cfg80211_disconnected(padapter->pnetdev, 0, NULL, 0, GFP_ATOMIC);
+            rtw_cfg80211_disconnected(padapter->pnetdev, 0, NULL, 0, GFP_ATOMIC);
         //else
             //DBG_8192C("pwdev->sme_state=%d\n", pwdev->sme_state);
 
@@ -878,8 +878,8 @@ void rtw_cfg80211_indicate_disconnect(_adapter *padapter)
         #else
 
         if (check_fwstate(&padapter->mlmepriv, _FW_LINKED)) {
-            DBG_871X(FUNC_ADPT_FMT" call cfg80211_disconnected\n", FUNC_ADPT_ARG(padapter));
-            cfg80211_disconnected(padapter->pnetdev, 0, NULL, 0, GFP_ATOMIC);
+            DBG_871X(FUNC_ADPT_FMT" call rtw_cfg80211_disconnected\n", FUNC_ADPT_ARG(padapter));
+            rtw_cfg80211_disconnected(padapter->pnetdev, 0, NULL, 0, GFP_ATOMIC);
         } else {
             DBG_871X(FUNC_ADPT_FMT" call cfg80211_connect_result\n", FUNC_ADPT_ARG(padapter));
             cfg80211_connect_result(padapter->pnetdev, NULL, NULL, 0, NULL, 0, 
@@ -6654,8 +6654,8 @@ void rtw_wdev_unregister(struct wireless_dev *wdev)
 
     #if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 11, 0)) || defined(COMPAT_KERNEL_RELEASE)  
     if (wdev->current_bss) {
-        DBG_871X(FUNC_ADPT_FMT" clear current_bss by cfg80211_disconnected\n", FUNC_ADPT_ARG(adapter));
-        cfg80211_disconnected(adapter->pnetdev, 0, NULL, 0, GFP_ATOMIC);
+        DBG_871X(FUNC_ADPT_FMT" clear current_bss by rtw_cfg80211_disconnected\n", FUNC_ADPT_ARG(adapter));
+        rtw_cfg80211_disconnected(adapter->pnetdev, 0, NULL, 0, GFP_ATOMIC);
     }
     #endif
 
