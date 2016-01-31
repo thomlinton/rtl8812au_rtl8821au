@@ -1994,7 +1994,7 @@ ODM_PhyStatusQuery(
 }
     
 // For future use.
-VOIDODM_MacStatusQuery(
+VOID ODM_MacStatusQuery(
     IN OUT  PDM_ODM_T                   pDM_Odm,
     IN      pu1Byte                     pMacStatus,
     IN      u1Byte                      MacID,  
