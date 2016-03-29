@@ -300,6 +300,7 @@ static struct usb_device_id rtw_usb_id_tbl[] ={
 	{USB_DEVICE(0x13b1, 0x003f),.driver_info = RTL8812}, /* Linksys - WUSB6300 */
 	{USB_DEVICE(0x2357, 0x0101),.driver_info = RTL8812}, /* TP-Link - T4U */
 	{USB_DEVICE(0x2357, 0x0103),.driver_info = RTL8812}, /* TP-Link - T4UH */
+	{USB_DEVICE(0x0BDA, 0x8812),.driver_info = RTL8812}, /* Alfa - AWUS036AC */
 #endif
 
 #ifdef CONFIG_RTL8821A
