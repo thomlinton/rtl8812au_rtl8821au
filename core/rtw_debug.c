@@ -68,7 +68,6 @@ u32 GlobalDebugLevel = _drv_err_;
 void dump_drv_version(void *sel)
 {
     DBG_871X_SEL_NL(sel, "%s %s\n", DRV_NAME, DRIVERVERSION);
-    DBG_871X_SEL_NL(sel, "build time: %s %s\n", __DATE__, __TIME__);
 }
 
 void dump_drv_cfg(void *sel)
@@ -1594,8 +1593,6 @@ int proc_get_rx_logs(struct seq_file *m, void *v)
         "core_rx_pre_ctrl=%d\n"
         "core_rx_pre_ctrl_err=%d\n"
         "core_rx_pre_data=%d\n"
-        "core_rx_pre_data_wapi_seq_err=%d\n"
-        "core_rx_pre_data_wapi_key_err=%d\n"
         "core_rx_pre_data_handled=%d\n"
         "core_rx_pre_data_err=%d\n"
         "core_rx_pre_data_unknown=%d\n"
@@ -1607,7 +1604,6 @@ int proc_get_rx_logs(struct seq_file *m, void *v)
         "core_rx_post_decrypt_wep=%d\n"
         "core_rx_post_decrypt_tkip=%d\n"
         "core_rx_post_decrypt_aes=%d\n"
-        "core_rx_post_decrypt_wapi=%d\n"
         "core_rx_post_decrypt_hw=%d\n"
         "core_rx_post_decrypt_unknown=%d\n"
         "core_rx_post_decrypt_err=%d\n"
@@ -1637,8 +1633,6 @@ int proc_get_rx_logs(struct seq_file *m, void *v)
         rx_logs->core_rx_pre_ctrl,
         rx_logs->core_rx_pre_ctrl_err,
         rx_logs->core_rx_pre_data,
-        rx_logs->core_rx_pre_data_wapi_seq_err,
-        rx_logs->core_rx_pre_data_wapi_key_err,
         rx_logs->core_rx_pre_data_handled,
         rx_logs->core_rx_pre_data_err,
         rx_logs->core_rx_pre_data_unknown,
@@ -1650,7 +1644,6 @@ int proc_get_rx_logs(struct seq_file *m, void *v)
         rx_logs->core_rx_post_decrypt_wep,
         rx_logs->core_rx_post_decrypt_tkip,
         rx_logs->core_rx_post_decrypt_aes,
-        rx_logs->core_rx_post_decrypt_wapi,
         rx_logs->core_rx_post_decrypt_hw,
         rx_logs->core_rx_post_decrypt_unknown,
         rx_logs->core_rx_post_decrypt_err,

@@ -766,11 +766,7 @@ static void ConstructGTKResponse(
     SetSeqNum(pwlanhdr, 0);
     SetDuration(pwlanhdr, 0);
 
-#ifdef CONFIG_WAPI_SUPPORT
-    *pLength = sMacHdrLng;
-#else
     *pLength = 24;
-#endif //CONFIG_WAPI_SUPPORT
 
 //YJ,del,120503
 #if 0
@@ -801,11 +797,6 @@ static void ConstructGTKResponse(
         case _AES_:
             EncryptionHeadOverhead = 8;
             break;
-#ifdef CONFIG_WAPI_SUPPORT
-        case _SMS4_:
-            EncryptionHeadOverhead = 18;
-            break;
-#endif //CONFIG_WAPI_SUPPORT
         default:
             EncryptionHeadOverhead = 0;
     }
